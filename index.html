@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Для Нази ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd1dc 0%, #ffe6eb 40%, #e8c5e5 100%);
+            font-family: 'Nunito', sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: #4a3e4e;
+            padding: 20px 15px;
+        }
+
+        html {
+            height: -webkit-fill-available;
+        }
+
+        /* Анимированный милый фон */
+        .bg-sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 7s infinite linear;
+            opacity: 0.7;
+            bottom: -40px;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* Главный контейнер */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Конверт */
+        .envelope-card {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(230, 150, 170, 0.35);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .envelope-card:active {
+            transform: scale(0.97);
+        }
+
+        .seal-wrapper {
+            position: relative;
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 20px;
+        }
+
+        .seal {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            box-shadow: 0 10px 20px rgba(255, 117, 140, 0.4);
+            animation: bounce 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        .envelope-title {
+            font-family: 'Caveat', cursive;
+            font-size: 38px;
+            color: #ff5277;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .envelope-sub {
+            font-size: 15px;
+            color: #8c6d7e;
+            font-weight: 600;
+        }
+
+        /* Карточка с письмом */
+        .card {
+            display: none;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid #ffffff;
+            border-radius: 32px;
+            padding: 30px 22px;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(230, 130, 160, 0.3);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .cat-badge {
+            font-size: 48px;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: wiggle 3s infinite ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-8deg); }
+            75% { transform: rotate(8deg); }
+        }
+
+        .title {
+            font-family: 'Caveat', cursive;
+            font-size: 38px;
+            color: #ff477e;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .letter-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #635162;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ff3366;
+            margin-bottom: 25px;
+            padding: 10px 15px;
+            background: #fff0f4;
+            border-radius: 18px;
+            border: 1.5px dashed #ffb3c6;
+        }
+
+        /* Кнопки */
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            min-height: 60px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            padding: 14px 26px;
+            font-size: 16px;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            outline: none;
+            touch-action: manipulation;
+        }
+
+        .btn-yes {
+            background: linear-gradient(45deg, #ff477e, #ff758c);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 71, 126, 0.4);
+            z-index: 2;
+        }
+
+        .btn-yes:active {
+            transform: scale(0.95);
+        }
+
+        .btn-no {
+            background: #f0e6ed;
+            color: #8c7a87;
+            border: 1px solid #e0d0dd;
+            z-index: 1;
+        }
+
+        /* Раздел "Нет" */
+        .sad-section {
+            display: none;
+            margin-top: 18px;
+            padding-top: 15px;
+            border-top: 1px solid #ffe0e8;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .sad-emoji {
+            font-size: 42px;
+            animation: crying 1.2s infinite ease-in-out;
+        }
+
+        @keyframes crying {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .sad-text {
+            color: #ff5277;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        /* Финальный экран */
+        .final-screen {
+            display: none;
+            text-align: center;
+            animation: popIn 0.8s ease forwards;
+        }
+
+        .final-emoji {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .final-title {
+            font-family: 'Caveat', cursive;
+            font-size: 40px;
+            color: #ff3366;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .music-card {
+            margin-top: 20px;
+            background: #fff0f4;
+            border-radius: 20px;
+            padding: 12px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #ffccd5;
+        }
+
+        .music-icon {
+            font-size: 22px;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .music-info {
+            text-align: left;
+        }
+
+        .music-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #ff3366;
+        }
+
+        .music-artist {
+            font-size: 11px;
+            color: #8c6d7e;
+            font-weight: 600;
+        }
+
+        @media (max-width: 360px) {
+            .title { font-size: 32px; }
+            .envelope-title { font-size: 32px; }
+            .letter-text { font-size: 14px; }
+            .question { font-size: 16px; }
+            .btn { padding: 12px 20px; font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Фоновые блестяшки и сердечки -->
+    <div class="bg-sparkles" id="bgSparkles"></div>
+
+    <div class="container">
+        <!-- Экран 1: Конвертик -->
+        <div class="envelope-card" id="envelopeCard" onclick="openLetter()">
+            <div class="seal-wrapper">
+                <div class="seal">💌</div>
+            </div>
+            <div class="envelope-title">Для Нази ✨</div>
+            <div class="envelope-sub">Нажми, чтобы открыть секрет... 💭</div>
+        </div>
+
+        <!-- Экран 2: Сама открытка -->
+        <div class="card" id="card">
+            <div id="mainContent">
+                <div class="cat-badge">🎀</div>
+                <h1 class="title">Дорогая Нази! 💕</h1>
+                <p class="letter-text">
+                    Знаешь, каждый день рядом с тобой становится особенным. Твоя улыбка поднимает настроение, и я больше не хочу скрывать свои чувства... 🌸
+                </p>
+                
+                <div class="question">Ты будешь со мной встречаться? 🥺✨</div>
+
+                <div class="buttons-wrapper">
+                    <button class="btn btn-yes" id="btnYes" onclick="acceptLove()">Да, конечно! 🥰</button>
+                    <button class="btn btn-no" id="btnNo" onclick="rejectLove()">Нет 🙈</button>
+                </div>
+
+                <div class="sad-section" id="sadSection">
+                    <div class="sad-emoji" id="sadEmoji">🥺</div>
+                    <div class="sad-text" id="sadText">Подумай ещё раз, пожалуйста... 💔</div>
+                </div>
+            </div>
+
+            <!-- Экран 3: Победа и любовь -->
+            <div class="final-screen" id="finalScreen">
+                <div class="final-emoji">💖✨🎉</div>
+                <h1 class="final-title">Урааа! Ты сделала меня самым счастливым!</h1>
+                <p class="letter-text">Теперь мы официально вместе! Я тебя очень люблю! 💕</p>
+                
+                <div class="music-card">
+                    <div class="music-icon">🎵</div>
+                    <div class="music-info">
+                        <div class="music-title">I Wanna Be Yours</div>
+                        <div class="music-artist">Arctic Monkeys</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Аудиозаписи -->
+    <audio id="introMusic" loop preload="auto">
+        <source src="yann-tiersen-comtine-dun-autre-ete_-lapres-midi.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="arctic-monkeys-i-wanna-be-yours.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="clickSound" preload="auto">
+        <source src="dragon-studio-pop-402324.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const sparklesContainer = document.getElementById('bgSparkles');
+        const icons = ['✨', '🌸', '💖', '💕', '⭐', '🎈'];
+        
+        for (let i = 0; i < 20; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerText = icons[Math.floor(Math.random() * icons.length)];
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            sparkle.style.fontSize = (Math.random() * 12 + 16) + 'px';
+            sparklesContainer.appendChild(sparkle);
+        }
+
+        // Автозапуск фоновой музыки при первом же касании экрана Нази
+        let musicStarted = false;
+        function startIntroMusic() {
+            if (!musicStarted) {
+                const intro = document.getElementById('introMusic');
+                if (intro) {
+                    intro.play().then(() => {
+                        musicStarted = true;
+                    }).catch(e => {});
+                }
+            }
+        }
+
+        // Ловим любое первое касание на телефоне
+        window.addEventListener('click', startIntroMusic, { once: true });
+        window.addEventListener('touchstart', startIntroMusic, { once: true });
+
+        function triggerFeedback() {
+            if (navigator.vibrate) {
+                navigator.vibrate(40);
+            }
+            const clickAudio = document.getElementById('clickSound');
+            if (clickAudio) {
+                clickAudio.currentTime = 0;
+                clickAudio.play().catch(e => {});
+            }
+        }
+
+        function openLetter() {
+            triggerFeedback();
+            startIntroMusic();
+
+            document.getElementById('envelopeCard').style.display = 'none';
+            document.getElementById('card').style.display = 'block';
+        }
+
+        let noClickCount = 0;
+        const sadTexts = [
+            "Подумай ещё раз, пожалуйста... 🥺",
+            "Ну ты чего? Нажми ДА! 💔",
+            "Я же очень старался для тебя... 😭",
+            "Кнопка 'Нет' больше не работает! 😜"
+        ];
+        const sadEmojis = ["🥺", "😭", "😿", "💔"];
+
+        function rejectLove() {
+            triggerFeedback();
+            noClickCount++;
+            
+            const btnYes = document.getElementById('btnYes');
+            const currentSize = parseFloat(window.getComputedStyle(btnYes).fontSize);
+            btnYes.style.fontSize = (currentSize + 5) + 'px';
+            btnYes.style.padding = (14 + noClickCount * 4) + 'px ' + (26 + noClickCount * 6) + 'px';
+
+            document.getElementById('sadSection').style.display = 'block';
+            document.getElementById('sadEmoji').innerText = sadEmojis[Math.min(noClickCount - 1, sadEmojis.length - 1)];
+            document.getElementById('sadText').innerText = sadTexts[Math.min(noClickCount - 1, sadTexts.length - 1)];
+        }
+
+        function acceptLove() {
+            if (navigator.vibrate) {
+                navigator.vibrate([60, 40, 60, 40, 100]);
+            }
+
+            // Полностью выключаем фоновую музыку
+            const intro = document.getElementById('introMusic');
+            if (intro) {
+                intro.pause();
+                intro.currentTime = 0;
+            }
+
+            // Включаем песню I Wanna Be Yours
+            const mainMusic = document.getElementById('bgMusic');
+            if (mainMusic) {
+                mainMusic.play().catch(e => console.log("Ошибка воспроизведения:", e));
+            }
+
+            // Переключаем экраны
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('finalScreen').style.display = 'block';
+
+            // Запускаем салют из сердечек
+            setInterval(createHeartRain, 120);
+        }
+
+        function createHeartRain() {
+            const heart = document.createElement('div');
+            heart.className = 'sparkle';
+            heart.innerText = ['❤️', '💖', '💕', '💗', '✨'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.bottom = '-20px';
+            heart.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            heart.style.opacity = '1';
+            sparklesContainer.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 4000);
+        }
+    </script>
+</body>
+</html>
